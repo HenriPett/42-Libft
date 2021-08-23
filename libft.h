@@ -6,7 +6,7 @@
 /*   By: hnass-pe <hnass-pe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/17 17:09:51 by hnass-pe          #+#    #+#             */
-/*   Updated: 2021/08/19 17:46:40 by hnass-pe         ###   ########.fr       */
+/*   Updated: 2021/08/23 16:49:25 by hnass-pe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void				ft_bzero(void *s, size_t n);
 void				*ft_memcpy(void *dst, const void *src, size_t n);
 void				*ft_memccpy(void *dst, const void *src,
 						int c, size_t n);
-void				*ft_memmove(void *dst, const void *src, size_t len);
+void				*ft_memmove(void *dest, const void *src, size_t n);
 void				*ft_memchr(const void *s, int c, size_t n);
 int					ft_memcmp(const void *s1, const void *s2, size_t n);
 

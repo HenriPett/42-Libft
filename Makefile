@@ -6,12 +6,12 @@
 #    By: hnass-pe <hnass-pe@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/08/18 19:03:40 by hnass-pe          #+#    #+#              #
-#    Updated: 2021/08/19 17:45:41 by hnass-pe         ###   ########.fr        #
+#    Updated: 2021/08/23 16:49:48 by hnass-pe         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 SRC = ft_isalnum.c ft_isalpha.c ft_isdigit.c ft_strlen.c ft_isascii.c \
-	ft_isprint.c ft_memset.c ft_bzero.c
+	ft_isprint.c ft_memset.c ft_bzero.c ft_memcpy.c ft_memmove.c
 
 OBJ = ${SRC:.c=.o}
 
