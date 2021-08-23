@@ -6,7 +6,7 @@
 /*   By: hnass-pe <hnass-pe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/23 16:45:32 by hnass-pe          #+#    #+#             */
-/*   Updated: 2021/08/23 16:45:33 by hnass-pe         ###   ########.fr       */
+/*   Updated: 2021/08/23 16:59:51 by hnass-pe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,24 +14,21 @@
 
 void	*memmove(void *dest, const void *src, size_t n)
 {
-	unsigned int	i;
+	char	*s;
+	char	*d;
+	size_t	i;
 
-	if (!dest && !src)
-		return (NULL);
-	if (dest > src)
-	{
-		while (n > 0)
-		{
-			((char *)dest)[n - 1] = ((char *)src)[n - 1];
-			n--;
-		}
-	}
+	s = (char *)src;
+	d = (char *)dest;
+	i = 0;
+	if (d > s)
+		while (n-- > 0)
+			d[n] = s[n];
 	else
 	{
-		i = 0;
 		while (i < n)
 		{
-			((char *)dest)[i] = ((char *)src)[i];
+			d[i] = s[i];
 			i++;
 		}
 	}
