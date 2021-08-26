@@ -6,13 +6,13 @@
 /*   By: hnass-pe <hnass-pe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/23 16:45:32 by hnass-pe          #+#    #+#             */
-/*   Updated: 2021/08/23 16:59:18 by hnass-pe         ###   ########.fr       */
+/*   Updated: 2021/08/26 20:45:59 by hnass-pe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*memmove(void *dest, const void *src, size_t n)
+void	*ft_memmove(void *dest, const void *src, size_t n)
 {
 	char	*s;
 	char	*d;

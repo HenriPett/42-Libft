@@ -6,7 +6,7 @@
 /*   By: hnass-pe <hnass-pe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/17 16:38:41 by hnass-pe          #+#    #+#             */
-/*   Updated: 2021/08/17 17:12:34 by hnass-pe         ###   ########.fr       */
+/*   Updated: 2021/08/23 17:07:40 by hnass-pe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 size_t	ft_strlen(const char *s)
 {
-	int	cont;
+	size_t	cont;
 
 	cont = 0;
 	while (s[cont] != '\0')

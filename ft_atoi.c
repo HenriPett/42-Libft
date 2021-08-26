@@ -1,25 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hnass-pe <hnass-pe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/08/24 17:20:25 by hnass-pe          #+#    #+#             */
-/*   Updated: 2021/08/26 19:26:40 by hnass-pe         ###   ########.fr       */
+/*   Created: 2021/08/26 20:30:17 by hnass-pe          #+#    #+#             */
+/*   Updated: 2021/08/26 20:31:25 by hnass-pe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-int	ft_strncmp(const char *s1, const char *s2, size_t n)
+int	ft_atoi(const char *nptr)
 {
-	size_t	i;
+	int	sign;
+	int	num;
 
-	i = 0;
-	if (n == 0)
-		return (0);
-	while (s1[i] == s2[i] && s1[i] != '\0' && s2[i] != '\0' && i < n - 1)
-		i++;
-	return ((unsigned char)s1[i] - (unsigned char)s2[i]);
+	while ((9 <= *nptr && *nptr <= 15) || *nptr == ' ')
+		++nptr;
+	sign = 1;
+	while (*nptr == '+' || *nptr == '-')
+	{
+		if (*nptr == '-')
+			sign = -sign;
+		++nptr;
+	}
+	num = 0;
+	while ('9' >= *nptr && *nptr >= '0')
+	{
+		num *= 10;
+		num += sign * (*nptr - '0');
+		++nptr;
+	}
+	return (num);
 }

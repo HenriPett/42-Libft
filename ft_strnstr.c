@@ -1,25 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hnass-pe <hnass-pe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/08/24 17:20:25 by hnass-pe          #+#    #+#             */
-/*   Updated: 2021/08/26 19:26:40 by hnass-pe         ###   ########.fr       */
+/*   Created: 2021/08/26 19:40:55 by hnass-pe          #+#    #+#             */
+/*   Updated: 2021/08/26 20:27:55 by hnass-pe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_strncmp(const char *s1, const char *s2, size_t n)
+char	*ft_strnstr(const char *s1, const char *s2, size_t n)
 {
-	size_t	i;
+	size_t		i;
+	char		*ps1;
+	char		*ps2;
+	int			len;
 
+	if (*s2 == '\0')
+		return ((char *)s1);
+	ps1 = (char *)s1;
+	ps2 = (char *)s2;
+	len = ft_strlen(ps2);
 	i = 0;
-	if (n == 0)
-		return (0);
-	while (s1[i] == s2[i] && s1[i] != '\0' && s2[i] != '\0' && i < n - 1)
+	while (ps1[i] != '\0' && (i + len) <= n)
+	{
+		if (ft_strncmp(s1 + i, s2, len) == 0)
+		{
+			return (ps1 + i);
+		}
 		i++;
-	return ((unsigned char)s1[i] - (unsigned char)s2[i]);
+	}
+	return (NULL);
 }
