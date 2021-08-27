@@ -6,7 +6,7 @@
 /*   By: hnass-pe <hnass-pe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/17 17:09:51 by hnass-pe          #+#    #+#             */
-/*   Updated: 2021/08/26 20:46:24 by hnass-pe         ###   ########.fr       */
+/*   Updated: 2021/08/27 09:36:33 by hnass-pe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,4 +46,8 @@ char				*ft_strnstr(const char *s1, const char *s2, size_t n);
 char				*ft_strrchr(const char *src, int c);
 int					ft_tolower(int c);
 int					ft_toupper(int c);
+void				*ft_calloc(size_t nmemb, size_t size);
+char				*strdup(const char *s);
+char				*ft_strsub(char const *s, unsigned int start, size_t len);
+char				*ft_strjoin(char const *s1, char const *s2);
 #endif
