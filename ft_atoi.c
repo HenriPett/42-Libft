@@ -5,31 +5,42 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: hnass-pe <hnass-pe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/08/26 20:30:17 by hnass-pe          #+#    #+#             */
-/*   Updated: 2021/08/26 20:31:25 by hnass-pe         ###   ########.fr       */
+/*   Created: 2021/09/08 17:16:34 by hnass-pe          #+#    #+#             */
+/*   Updated: 2021/09/08 17:16:36 by hnass-pe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
+
+static int	ft_iswhite(int	c)
+{
+	if (c == ' ' || c == '\t' || c == '\n'
+		|| c == '\v' || c == '\f' || c == '\r')
+		return (1);
+	return (0);
+}
+
 int	ft_atoi(const char *nptr)
 {
-	int	sign;
-	int	num;
+	int	r;
+	int	signal;
 
-	while ((9 <= *nptr && *nptr <= 15) || *nptr == ' ')
-		++nptr;
-	sign = 1;
-	while (*nptr == '+' || *nptr == '-')
+	signal = 1;
+	r = 0;
+	while ((ft_iswhite((int) *nptr)) && *nptr)
+		nptr++;
+	if (*nptr == '-')
 	{
-		if (*nptr == '-')
-			sign = -sign;
-		++nptr;
+		signal = -1;
+		nptr++;
 	}
-	num = 0;
-	while ('9' >= *nptr && *nptr >= '0')
+	else if (*nptr == '+')
+		nptr++;
+	while (ft_isdigit((int) *nptr))
 	{
-		num *= 10;
-		num += sign * (*nptr - '0');
-		++nptr;
+		r *= 10;
+		r += ((*nptr - '0') * signal);
+		nptr++;
 	}
-	return (num);
+	return (r);
 }

@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: hnass-pe <hnass-pe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/08/17 16:38:41 by hnass-pe          #+#    #+#             */
-/*   Updated: 2021/08/23 17:07:40 by hnass-pe         ###   ########.fr       */
+/*   Created: 2021/09/08 17:20:33 by hnass-pe          #+#    #+#             */
+/*   Updated: 2021/09/08 17:20:35 by hnass-pe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,12 @@
 
 size_t	ft_strlen(const char *s)
 {
-	size_t	cont;
+	int	n;
 
-	cont = 0;
-	while (s[cont] != '\0')
-	{
-		cont++;
-	}
-	return (cont);
+	n = 0;
+	if (!s)
+		return (0);
+	while (s[n])
+		n++;
+	return ((size_t) n);
 }

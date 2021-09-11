@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: hnass-pe <hnass-pe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/08/23 17:11:59 by hnass-pe          #+#    #+#             */
-/*   Updated: 2021/08/23 17:38:48 by hnass-pe         ###   ########.fr       */
+/*   Created: 2021/09/08 17:20:08 by hnass-pe          #+#    #+#             */
+/*   Updated: 2021/09/08 17:20:10 by hnass-pe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,28 +14,18 @@
 
 size_t	ft_strlcat(char *dst, const char *src, size_t size)
 {
-	size_t	len_dst;
-	size_t	res;
-	size_t	len_src;
-	size_t	i;
+	char		*d;
+	const char	*s;
+	size_t		d_len;
+	size_t		s_len;
 
-	len_dst = ft_strlen(dst);
-	len_src = ft_strlen(src);
-	res = 0;
-	i = 0;
-	if (size > len_dst)
-	{
-		res = len_src + len_dst;
-		while (src[i] && (len_dst + 1) < size)
-		{
-			dst[len_dst] = src[i];
-			len_dst++;
-			i++;
-		}
-		dst[len_dst] = '\0';
-		return (res);
-	}
+	d = dst;
+	s = src;
+	d_len = ft_strlen(d);
+	s_len = ft_strlen(s);
+	if (d_len >= size)
+		return (s_len + size);
 	else
-		res = len_src + size;
-	return (res);
+		ft_strlcpy(d + d_len, s, size - d_len);
+	return (d_len + s_len);
 }

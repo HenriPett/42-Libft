@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: hnass-pe <hnass-pe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/08/23 16:45:32 by hnass-pe          #+#    #+#             */
-/*   Updated: 2021/08/26 20:45:59 by hnass-pe         ###   ########.fr       */
+/*   Created: 2021/09/08 17:18:01 by hnass-pe          #+#    #+#             */
+/*   Updated: 2021/09/08 17:18:02 by hnass-pe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,23 +14,26 @@
 
 void	*ft_memmove(void *dest, const void *src, size_t n)
 {
-	char	*s;
 	char	*d;
-	size_t	i;
+	char	*s;
 
-	s = (char *)src;
-	d = (char *)dest;
-	i = 0;
+	d = (char *) dest;
+	s = (char *) src;
+	if (s == d)
+		return (dest);
 	if (d > s)
-		while (n-- > 0)
-			d[n] = s[n];
-	else
 	{
-		while (i < n)
+		s = s + n - 1;
+		d = d + n - 1;
+		while (n)
 		{
-			d[i] = s[i];
-			i++;
+			*d = *s;
+			d--;
+			s--;
+			n--;
 		}
 	}
+	else
+		ft_memcpy(dest, src, n);
 	return (dest);
 }

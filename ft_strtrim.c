@@ -5,46 +5,90 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: hnass-pe <hnass-pe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/08/30 21:41:55 by hnass-pe          #+#    #+#             */
-/*   Updated: 2021/08/30 21:48:11 by hnass-pe         ###   ########.fr       */
+/*   Created: 2021/09/08 17:21:02 by hnass-pe          #+#    #+#             */
+/*   Updated: 2021/09/08 17:21:03 by hnass-pe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_char_in_set(char c, char const *set)
+static int	contains(char const *set, char c)
 {
-	size_t	i;
+	const char	*s;
 
-	i = 0;
-	while (set[i])
+	s = set;
+	while (*s)
 	{
-		if (set[i] == c)
+		if ((char)*s == c)
 			return (1);
-		i++;
+		s++;
 	}
 	return (0);
 }
 
+static char	*get_start(char const *s1, char const *set)
+{
+	char const	*s;
+
+	s = s1;
+	while (*s)
+	{
+		if (!contains(set, *s))
+			return ((char *)s);
+		s++;
+	}
+	return ((char *)s);
+}
+
+static char	*get_end(char const *s1, char const *set)
+{
+	char const	*s;
+
+	s = s1;
+	while (*s)
+		s++;
+	s--;
+	while (*s)
+	{
+		if (!contains(set, *s))
+			return ((char *)s);
+		s--;
+	}
+	return ((char *)s);
+}
+
+static size_t	word_len(char const *start, char const *end)
+{
+	char const	*s;
+	char const	*e;
+	size_t		len;
+
+	s = start;
+	e = end;
+	len = 0;
+	while (s <= e)
+	{
+		len++;
+		s++;
+	}
+	return (len);
+}
+
 char	*ft_strtrim(char const *s1, char const *set)
 {
-	char	*str;
-	size_t	i;
-	size_t	start;
-	size_t	end;
+	char	*output;
+	size_t	m_len;
+	char	*start;
+	char	*end;
 
-	start = 0;
-	while (s1[start] && ft_char_in_set(s1[start], set))
-		start++;
-	end = ft_strlen(s1);
-	while (end > start && ft_char_in_set(s1[end - 1], set))
-		end--;
-	str = (char *)malloc(sizeof(*s1) * (end - start + 1));
-	if (!str)
+	if (!s1 || !set)
 		return (NULL);
-	i = 0;
-	while (start < end)
-		str[i++] = s1[start++];
-	str[i] = 0;
-	return (str);
+	start = get_start(s1, set);
+	end = get_end(s1, set);
+	m_len = word_len(start, end);
+	output = malloc(m_len + 1);
+	if (!output)
+		return (NULL);
+	ft_strlcpy(output, start, m_len + 1);
+	return (output);
 }

@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: hnass-pe <hnass-pe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/08/23 17:54:14 by hnass-pe          #+#    #+#             */
-/*   Updated: 2021/08/26 20:46:16 by hnass-pe         ###   ########.fr       */
+/*   Created: 2021/09/08 17:19:38 by hnass-pe          #+#    #+#             */
+/*   Updated: 2021/09/10 19:16:51 by hnass-pe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,10 @@
 
 char	*ft_strchr(const char *s, int c)
 {
-	unsigned int	i;
-
-	i = 0;
-	while (s[i])
-	{
-		if (s[i] == (char)c)
-			return ((char *)&s[i]);
-		i++;
-	}
-	if ((char)c == s[i])
-		return ((char *)&s[i]);
+	while (*s)
+		if (*s++ == (char) c)
+			return ((char *)--s);
+	if ((char) c == '\0')
+		return ((char *)s);
 	return (NULL);
 }

@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: hnass-pe <hnass-pe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/08/19 17:36:58 by hnass-pe          #+#    #+#             */
-/*   Updated: 2021/08/19 17:43:03 by hnass-pe         ###   ########.fr       */
+/*   Created: 2021/09/08 17:16:43 by hnass-pe          #+#    #+#             */
+/*   Updated: 2021/09/08 17:16:45 by hnass-pe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,13 @@
 
 void	ft_bzero(void *s, size_t n)
 {
-	char	*temp;
+	unsigned char	*dst;
 
-	temp = s;
+	dst = (unsigned char *) s;
 	while (n > 0)
 	{
-		*temp = '\0';
-		temp++;
+		*dst = '\0';
 		n--;
+		dst++;
 	}
 }

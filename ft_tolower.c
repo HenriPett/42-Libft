@@ -5,16 +5,14 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: hnass-pe <hnass-pe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/08/23 17:53:08 by hnass-pe          #+#    #+#             */
-/*   Updated: 2021/08/23 17:53:09 by hnass-pe         ###   ########.fr       */
+/*   Created: 2021/09/08 17:21:12 by hnass-pe          #+#    #+#             */
+/*   Updated: 2021/09/10 19:38:01 by hnass-pe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
 int	ft_tolower(int c)
 {
-	if ((c >= 'A') && (c <= 'Z'))
-		c += 'a' - 'A';
+	if (c >= 65 && c <= 90)
+		c = c + 32;
 	return (c);
 }

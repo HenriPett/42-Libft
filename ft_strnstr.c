@@ -5,33 +5,37 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: hnass-pe <hnass-pe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/08/26 19:40:55 by hnass-pe          #+#    #+#             */
-/*   Updated: 2021/08/26 20:27:55 by hnass-pe         ###   ########.fr       */
+/*   Created: 2021/09/08 17:20:50 by hnass-pe          #+#    #+#             */
+/*   Updated: 2021/09/08 17:20:51 by hnass-pe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strnstr(const char *s1, const char *s2, size_t n)
+char	*ft_strnstr(const char *big, const char *little, size_t len)
 {
-	size_t		i;
-	char		*ps1;
-	char		*ps2;
-	int			len;
+	const char	*b;
+	const char	*l;
+	int			l_len;
 
-	if (*s2 == '\0')
-		return ((char *)s1);
-	ps1 = (char *)s1;
-	ps2 = (char *)s2;
-	len = ft_strlen(ps2);
-	i = 0;
-	while (ps1[i] != '\0' && (i + len) <= n)
+	if (!big || !little)
+		return (NULL);
+	b = big;
+	l = little;
+	l_len = ft_strlen(l);
+	if (!l_len)
+		return ((char *) b);
+	if ((int)len == -1)
+		len = ft_strlen(big);
+	while (*b && len)
 	{
-		if (ft_strncmp(s1 + i, s2, len) == 0)
+		if (*b == *l)
 		{
-			return (ps1 + i);
+			if (!(ft_strncmp(b, l, l_len)) && (int)l_len <= (int)len)
+				return ((char *) b);
 		}
-		i++;
+		b++;
+		len--;
 	}
 	return (NULL);
 }

@@ -5,20 +5,25 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: hnass-pe <hnass-pe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/08/23 17:57:34 by hnass-pe          #+#    #+#             */
-/*   Updated: 2021/08/23 17:59:54 by hnass-pe         ###   ########.fr       */
+/*   Created: 2021/09/08 17:20:54 by hnass-pe          #+#    #+#             */
+/*   Updated: 2021/09/08 17:20:56 by hnass-pe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strrchr(const char *src, int c)
+char	*ft_strrchr(const char *s, int c)
 {
-	if (ft_strchr(src, c) == NULL)
-		return (NULL);
-	while (*src)
-		src++;
-	while (*src != c)
-		src--;
-	return ((char *)src);
+	const char	*tmp;
+
+	tmp = s;
+	while (*tmp)
+		tmp++;
+	while (tmp >= s)
+	{
+		if ((unsigned char) *tmp == (unsigned char) c)
+			return ((char *) tmp);
+		tmp--;
+	}
+	return (NULL);
 }

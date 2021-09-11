@@ -5,15 +5,14 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: hnass-pe <hnass-pe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/08/17 16:27:51 by hnass-pe          #+#    #+#             */
-/*   Updated: 2021/08/17 16:30:30 by hnass-pe         ###   ########.fr       */
+/*   Created: 2021/09/08 17:16:54 by hnass-pe          #+#    #+#             */
+/*   Updated: 2021/09/10 18:45:08 by hnass-pe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
+
 int	ft_isalnum(int c)
 {
-	if ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z')
-		|| (c >= '0' && c <= '9'))
-		return (1);
-	return (0);
+	return (ft_isalpha(c) || ft_isdigit(c));
 }
